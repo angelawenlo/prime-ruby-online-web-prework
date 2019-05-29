@@ -1,8 +1,13 @@
-def prime?(integer)
- (2..integer - 1).each do |x|
-  if (integer % x) == 0
-   return false
+require 'pry'
+
+def prime?(num)
+  if num < 0 or num == 0 or num == 1
+    return false
   else
-   return true
+    (2..num-1).to_a.all? do |possible_factor|
+      num % possible_factor != 0
+    end
   end
 end
+
+puts prime?(4)
